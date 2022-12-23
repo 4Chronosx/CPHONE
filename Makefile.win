@@ -1,0 +1,52 @@
+# Project: Cphone
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o lock_screen.o app_menu.o app_phonebook.o app_calendar.o app_calculator.o app_scrabble.o app_utilities.o validate_clear.o
+LINKOBJ  = main.o lock_screen.o app_menu.o app_phonebook.o app_calendar.o app_calculator.o app_scrabble.o app_utilities.o validate_clear.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Cphone.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+lock_screen.o: lock_screen.c
+	$(CC) -c lock_screen.c -o lock_screen.o $(CFLAGS)
+
+app_menu.o: app_menu.c
+	$(CC) -c app_menu.c -o app_menu.o $(CFLAGS)
+
+app_phonebook.o: app_phonebook.c
+	$(CC) -c app_phonebook.c -o app_phonebook.o $(CFLAGS)
+
+app_calendar.o: app_calendar.c
+	$(CC) -c app_calendar.c -o app_calendar.o $(CFLAGS)
+
+app_calculator.o: app_calculator.c
+	$(CC) -c app_calculator.c -o app_calculator.o $(CFLAGS)
+
+app_scrabble.o: app_scrabble.c
+	$(CC) -c app_scrabble.c -o app_scrabble.o $(CFLAGS)
+
+app_utilities.o: app_utilities.c
+	$(CC) -c app_utilities.c -o app_utilities.o $(CFLAGS)
+
+validate_clear.o: validate_clear.c
+	$(CC) -c validate_clear.c -o validate_clear.o $(CFLAGS)
